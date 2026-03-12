@@ -1,0 +1,19 @@
+body{
+background-color: #1A1A1A;
+}
+.header img{
+    height: auto;
+    width: 50px;
+}
+
+
+/*
+Colores principales
+#1A1A1A → Fondo oscuro elegante
+
+#FFFFFF → Texto principal
+
+#C9A86A → Dorado suave para detalles
+
+#0A84FF → Azul para botones o enlaces
+*/

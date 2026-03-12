@@ -1,0 +1,72 @@
+/* CABECERA GENERAL */
+.header {
+    background-color: #1A1A1A; /* Fondo oscuro elegante */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid #C9A86A; /* Línea dorada */
+    position: relative;
+}
+
+/* LOGO */
+.logo a {
+    color: #C9A86A; /* Dorado suave */
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* NAVEGACIÓN */
+nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.nav a {
+    margin: 0 15px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #0A84FF; /* Azul para hover */
+}
+
+/* USUARIO */
+.usuario {
+    color: #C9A86A;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nombre-usuario {
+    padding: 6px 12px;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+    .header {
+        height: auto;
+        flex-direction: column; /* Apila logo y menú uno sobre otro */
+        padding-bottom: 50px;   /* Espacio para el menú que flota */
+    }
+    nav {
+        top: 70px; /* Lo baja para que no tape al logo */
+    }
+    .usuario{
+        position: relative;
+        align-self: flex-end;
+        top: 0px;
+        margin-right: 20px;
+    }
+
+}

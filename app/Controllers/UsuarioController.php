@@ -37,7 +37,9 @@ class UsuarioController {
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
         if (UsuarioModel::crearUsuario($nombre, $email, $passwordHash)) {
-            header("Location: /ProyectoFinal/public/login");
+            session_start(); 
+            $_SESSION["usuario"] = $nombre;
+            header("Location: /ProyectoFinal/public/home");
             exit;
         } else {
             $error = "Error al registrar usuario";
@@ -53,5 +55,14 @@ class UsuarioController {
         }
 
         require __DIR__ . "/../Views/home.php";
+    }
+
+    public function logout(){
+        session_start();
+        session_unset();
+        session_destroy();
+
+        header("Location: /ProyectoFinal/public/login");
+        exit();
     }
 }
