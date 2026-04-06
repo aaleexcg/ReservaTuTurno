@@ -1,6 +1,8 @@
+DESCRIPCION
 Proyecto Final – Sistema de Login y Registro en PHP
 Aplicación web desarrollada en PHP con arquitectura MVC básica. Incluye sistema de rutas mediante index.php, manejo de sesiones, conexión a base de datos MySQL y vistas para login y registro de usuarios.
 
+CARACTERISTICAS
 Funcionalidades actuales
 Página principal con enlaces a Login y Registro.
 
@@ -17,3 +19,6 @@ Redirección automática tras login correcto.
 Sistema de rutas simple basado en index.php.
 
 .htaccess configurado para permitir URLs limpias (/login, /register, etc.).
+
+DESPLIEGUE ACTUAL
+Actualmente el proyecto se despliega en local mediante XAMPP 
