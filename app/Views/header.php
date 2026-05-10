@@ -11,7 +11,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <nav class="nav">
         <a href="/ProyectoFinal/public/home">Inicio</a>
-        <a href="/ProyectoFinal/public/servicios">Servicios</a>
+        <a href="/ProyectoFinal/public/services">Servicios</a>
         <a href="/ProyectoFinal/public/citas">Citas</a>
     </nav>
 
