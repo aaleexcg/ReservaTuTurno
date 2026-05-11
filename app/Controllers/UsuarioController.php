@@ -21,7 +21,7 @@ class UsuarioController {
         if ($usuario && password_verify($password, $usuario["contrasena_hash"])) {
             session_start();
             $_SESSION["usuario"] = $usuario["nombre"];
-            header("Location: /ProyectoFinal/public/home");
+            header("Location: /ProyectoFinal/public/negocios");
             exit;
         } else {
             $error = "Credenciales incorrectas";

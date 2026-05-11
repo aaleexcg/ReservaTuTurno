@@ -2,12 +2,24 @@
 
 require_once __DIR__ . "/../app/Controllers/UsuarioController.php";
 require_once __DIR__ . "/../app/Controllers/ServiceController.php";
+require_once __DIR__ . "/../app/Controllers/NegocioController.php";
 require_once __DIR__ . '/../config/auth.php';
 
 $uri = $_SERVER["REQUEST_URI"];
 $method = $_SERVER["REQUEST_METHOD"];
 
 $controller = new UsuarioController();
+/* si no hay negocio seleccionado
+if (!isset($_SESSION['negocio_id']) && 
+    $uri !== "/ProyectoFinal/public/negocios" &&
+    strpos($uri, "/ProyectoFinal/public/negocios/seleccionar") === false &&
+    $uri !== "/ProyectoFinal/public/login" &&
+    $uri !== "/ProyectoFinal/public/register") {
+
+    header("Location: /ProyectoFinal/public/negocios");
+    exit;
+}*/
+
 // Rutas GET
 if ($uri === "/ProyectoFinal/public/" || $uri === "/ProyectoFinal/public") {
     header("Location: /ProyectoFinal/public/login");
@@ -95,6 +107,21 @@ if (strpos($uri, "/ProyectoFinal/public/services/delete/") === 0 && $method === 
     $id = basename($uri);
     $serviceController = new ServiceController();
     $serviceController->delete($id);
+    exit;
+}
+
+// Mostrar negocios
+if ($uri === "/ProyectoFinal/public/negocios" && $method === "GET") {
+    $controller = new NegocioController();
+    $controller->index();
+    exit;
+}
+
+// Seleccionar negocio
+if (strpos($uri, "/ProyectoFinal/public/negocios/seleccionar/") === 0) {
+    $id = basename($uri);
+    $controller = new NegocioController();
+    $controller->seleccionar($id);
     exit;
 }
 
