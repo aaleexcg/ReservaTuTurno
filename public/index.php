@@ -3,7 +3,12 @@
 require_once __DIR__ . "/../app/Controllers/UsuarioController.php";
 require_once __DIR__ . "/../app/Controllers/ServiceController.php";
 require_once __DIR__ . "/../app/Controllers/NegocioController.php";
+require_once __DIR__ . "/../app/Controllers/ReservaController.php";
 require_once __DIR__ . '/../config/auth.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $uri = $_SERVER["REQUEST_URI"];
 $method = $_SERVER["REQUEST_METHOD"];
@@ -124,5 +129,49 @@ if (strpos($uri, "/ProyectoFinal/public/negocios/seleccionar/") === 0) {
     $controller->seleccionar($id);
     exit;
 }
+
+// Crear reserva
+/*if (strpos($uri, "/ProyectoFinal/public/reservas/crear") === 0) {
+    $controller = new ReservaController();
+    $controller->crear();
+    exit;
+}*/
+
+// Guardar reserva
+if ($uri === "/ProyectoFinal/public/reservas/guardar" && $method === "POST") {
+    $controller = new ReservaController();
+    $controller->guardar();
+    exit;
+}
+
+// Listar reservas
+if ($uri === "/ProyectoFinal/public/reservas") {
+    $controller = new ReservaController();
+    $controller->index();
+    exit;
+}
+
+// Cancelar reserva
+if (strpos($uri, "/ProyectoFinal/public/reservas/cancelar/") === 0) {
+    $id = basename($uri);
+    $controller = new ReservaController();
+    $controller->cancelar($id);
+    exit;
+}
+
+// Mostrar formulario cambiar nombre
+if ($uri === "/ProyectoFinal/public/usuario/cambiarNombre" && $method === "GET") {
+    $controller = new UsuarioController();
+    $controller->cambiarNombreForm();
+    exit;
+}
+
+// Guardar nuevo nombre
+if ($uri === "/ProyectoFinal/public/usuario/cambiarNombre" && $method === "POST") {
+    $controller = new UsuarioController();
+    $controller->cambiarNombre();
+    exit;
+}
+
 
 echo "<h1>404 - Página no encontrada</h1>";

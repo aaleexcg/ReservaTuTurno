@@ -1,3 +1,7 @@
+<?php
+$titulo = "Negocios";
+ob_start();
+?>
 <h1>Servicios</h1>
 
 <a href="/ProyectoFinal/public/services/create">Crear nuevo servicio</a>
@@ -23,11 +27,19 @@
                 <td><?= $service['precio'] ?> €</td>
                 <td><?= $service['activo'] ? 'Sí' : 'No' ?></td>
                 <td>
-                    <a href="/ProyectoFinal/public/services/edit/<?= $service['id_servicio'] ?>">Editar</a>
+                
+                <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
+                    <a href="/ProyectoFinal/public/services/edit/<?= $service['id_servicio'] ?>">
+                        <button>Editar</button>
+                    </a>
+                <?php endif; ?>
 
                     <form action="/ProyectoFinal/public/services/delete/<?= $service['id_servicio'] ?>" method="POST" style="display:inline;">
                         <button type="submit">Eliminar</button>
                     </form>
+                    <a href="/ProyectoFinal/public/reservas/crear?id_servicio=<?= $service['id_servicio'] ?>">
+                        <button>Reservar</button>
+                    </a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -37,3 +49,7 @@
         </tr>
     <?php endif; ?>
 </table>
+
+<?php
+$contenido = ob_get_clean();
+require __DIR__ . "/../layout.php";

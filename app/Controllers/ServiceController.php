@@ -8,7 +8,7 @@ class ServiceController {
     private $service;
 
     public function __construct() {
-        // NO usar $db, NO pasar parámetros
+        //NO pasar parámetros
         $this->service = new ServiceModel();
     }
 

@@ -19,8 +19,9 @@ class UsuarioController {
         $usuario = UsuarioModel::buscarPorEmail($email);
 
         if ($usuario && password_verify($password, $usuario["contrasena_hash"])) {
-            session_start();
             $_SESSION["usuario"] = $usuario["nombre"];
+            $_SESSION["id_usuario"] = $usuario["id_usuario"];
+            $_SESSION['rol'] = $usuario['rol'];
             header("Location: /ProyectoFinal/public/negocios");
             exit;
         } else {
@@ -37,7 +38,6 @@ class UsuarioController {
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
         if (UsuarioModel::crearUsuario($nombre, $email, $passwordHash)) {
-            session_start(); 
             $_SESSION["usuario"] = $nombre;
             header("Location: /ProyectoFinal/public/home");
             exit;
@@ -48,7 +48,6 @@ class UsuarioController {
     }
 
     public function home() {
-        session_start();
         if (!isset($_SESSION["usuario"])) {
             header("Location: /ProyectoFinal/public/login");
             exit;
@@ -58,11 +57,28 @@ class UsuarioController {
     }
 
     public function logout(){
-        session_start();
         session_unset();
         session_destroy();
 
         header("Location: /ProyectoFinal/public/login");
         exit();
     }
+
+    public function cambiarNombreForm() {
+        require __DIR__ . '/../Views/usuario/cambiarNombre.php';
+    }
+
+    public function cambiarNombre() {
+        $nuevoNombre = $_POST['nombre'];
+        $id = $_SESSION['id_usuario'];
+
+        UsuarioModel::actualizarNombre($id, $nuevoNombre);
+
+        // Actualizar la sesión
+        $_SESSION['usuario'] = $nuevoNombre;
+
+        header("Location: /ProyectoFinal/public/home");
+        exit;
+    }
+
 }

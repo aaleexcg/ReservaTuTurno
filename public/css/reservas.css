@@ -1,0 +1,56 @@
+/* Contenedor general */
+.reservas-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Títulos */
+.reservas-container h1 {
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+/* Botón crear */
+.btn-crear {
+    background-color: #d4af37;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+form label {
+    display: block;
+    margin-top: 10px;
+    color: white;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+/* Botón reservar */
+form button {
+    background-color: #d4af37;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Cada reserva */
+.reserva {
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: white;
+}

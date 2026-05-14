@@ -7,6 +7,7 @@ class NegocioController {
     public function index() {
         $model = new NegocioModel();
         $negocios = $model->all();
+        $ocultarMenu = true; 
         require __DIR__ . '/../Views/negocios/index.php';
     }
 
@@ -15,4 +16,6 @@ class NegocioController {
         header("Location: /ProyectoFinal/public/home");
         exit;
     }
+
+    
 }

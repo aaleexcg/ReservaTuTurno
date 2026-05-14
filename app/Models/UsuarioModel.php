@@ -26,4 +26,13 @@ class UsuarioModel {
 
         return $stmt->get_result()->fetch_assoc();
     }
+
+    public static function actualizarNombre($id, $nombre) {
+        global $conexion;
+
+        $stmt = $conexion->prepare("UPDATE usuario SET nombre = ? WHERE id_usuario = ?");
+        $stmt->bind_param("si", $nombre, $id);
+        return $stmt->execute();
+    }
+
 }

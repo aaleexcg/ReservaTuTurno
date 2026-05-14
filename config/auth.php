@@ -5,8 +5,9 @@ function isLogged() {
 }
 
 function isAdmin() {
-    return isset($_SESSION['user']) && $_SESSION['user']['rol'] === 'admin';
+    return isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin';
 }
+
 
 function requireLogin() {
     if (!isLogged()) {

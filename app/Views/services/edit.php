@@ -1,3 +1,8 @@
+<?php
+$titulo = "Editar servicio";
+ob_start();
+?>
+
 <h1>Editar servicio</h1>
 
 <form action="/ProyectoFinal/public/services/update/<?= $service['id_servicio'] ?? '' ?>" method="POST">
@@ -18,3 +23,6 @@
 
     <button type="submit">Actualizar</button>
 </form>
+<?php
+$contenido = ob_get_clean();
+require __DIR__ . "/../layout.php";

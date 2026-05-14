@@ -37,7 +37,7 @@ nav {
 }
 
 .nav a:hover {
-    color: #0A84FF; /* Azul para hover */
+    color: #ff600a; /* Azul para hover */
 }
 
 /* USUARIO */
@@ -68,5 +68,59 @@ nav {
         top: 0px;
         margin-right: 20px;
     }
+    
+    .dropdown-menu {
+        right: 10px;
+    }
 
+}
+
+/* CONTENEDOR DEL USUARIO */
+.usuario {
+    position: relative;
+    color: #C9A86A;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* NOMBRE DEL USUARIO */
+.nombre-usuario {
+    padding: 6px 12px;
+    background-color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.nombre-usuario:hover {
+    background-color: #444;
+}
+
+/* MENÚ DESPLEGABLE */
+.dropdown-menu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #1A1A1A;
+    border: 1px solid #C9A86A;
+    border-radius: 6px;
+    min-width: 180px;
+    padding: 8px 0;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* OPCIONES DEL MENÚ */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #C9A86A;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #333;
+    color: #ff600a;
 }
