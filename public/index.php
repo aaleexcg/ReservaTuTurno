@@ -14,7 +14,7 @@ $uri = $_SERVER["REQUEST_URI"];
 $method = $_SERVER["REQUEST_METHOD"];
 
 $controller = new UsuarioController();
-/* si no hay negocio seleccionado
+// si no hay negocio seleccionado
 if (!isset($_SESSION['negocio_id']) && 
     $uri !== "/ProyectoFinal/public/negocios" &&
     strpos($uri, "/ProyectoFinal/public/negocios/seleccionar") === false &&
@@ -23,7 +23,7 @@ if (!isset($_SESSION['negocio_id']) &&
 
     header("Location: /ProyectoFinal/public/negocios");
     exit;
-}*/
+}
 
 // Rutas GET
 if ($uri === "/ProyectoFinal/public/" || $uri === "/ProyectoFinal/public") {
@@ -143,21 +143,33 @@ if ($uri === "/ProyectoFinal/public/reservas/guardar" && $method === "POST") {
     $controller->guardar();
     exit;
 }
+// Cancelar reserva
+if (strpos($uri, "/ProyectoFinal/public/reservas/cancelar/") === 0) {
+
+    // Extraer solo el número final
+    $partes = explode("/", $uri);
+    $id = end($partes);
+
+    // Asegurar que es un número
+    if (is_numeric($id)) {
+        $controller = new ReservaController();
+        $controller->cancelar((int)$id);
+    }
+
+    exit;
+}
 
 // Listar reservas
-if ($uri === "/ProyectoFinal/public/reservas") {
+if ($uri === "/ProyectoFinal/public/reservas" || 
+    strpos($uri, "/ProyectoFinal/public/reservas?") === 0) {
+
     $controller = new ReservaController();
     $controller->index();
     exit;
 }
 
-// Cancelar reserva
-if (strpos($uri, "/ProyectoFinal/public/reservas/cancelar/") === 0) {
-    $id = basename($uri);
-    $controller = new ReservaController();
-    $controller->cancelar($id);
-    exit;
-}
+
+
 
 // Mostrar formulario cambiar nombre
 if ($uri === "/ProyectoFinal/public/usuario/cambiarNombre" && $method === "GET") {
@@ -170,6 +182,23 @@ if ($uri === "/ProyectoFinal/public/usuario/cambiarNombre" && $method === "GET")
 if ($uri === "/ProyectoFinal/public/usuario/cambiarNombre" && $method === "POST") {
     $controller = new UsuarioController();
     $controller->cambiarNombre();
+    exit;
+}
+
+// Calendario admin
+if ($uri === "/ProyectoFinal/public/admin/calendario" && $method === "GET") {
+    requireAdmin();
+    $controller = new ReservaController();
+    $controller->calendarioAdmin();
+    exit;
+}
+
+// API JSON reservas
+if (strpos($uri, "/ProyectoFinal/public/admin/reservas-json") === 0 && $method === "GET") {
+    requireAdmin();
+    $controller = new ReservaController();
+    header("Content-Type: application/json");
+    echo json_encode($controller->reservasJson());
     exit;
 }
 

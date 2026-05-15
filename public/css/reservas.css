@@ -54,3 +54,17 @@ form button {
     margin-bottom: 15px;
     color: white;
 }
+.reservas-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.reserva-card {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    width: calc(50% - 15px);
+    min-width: 250px;
+    border: 1px solid #333;
+}

@@ -26,6 +26,9 @@
                     <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin'): ?>
                         <a href="/ProyectoFinal/public/services">Gestionar servicios</a>
                     <?php endif; ?>
+                        <?php if ($_SESSION['rol'] === 'admin'): ?>
+                        <a href="/ProyectoFinal/public/admin/calendario">Calendario</a>
+                    <?php endif; ?>
 
                     <a href="/ProyectoFinal/public/usuario/cambiarNombre">Cambiar nombre</a>
                     <a href="/ProyectoFinal/public/logout">Cerrar sesión</a>

@@ -37,9 +37,9 @@ ob_start();
                     <form action="/ProyectoFinal/public/services/delete/<?= $service['id_servicio'] ?>" method="POST" style="display:inline;">
                         <button type="submit">Eliminar</button>
                     </form>
-                    <a href="/ProyectoFinal/public/reservas/crear?id_servicio=<?= $service['id_servicio'] ?>">
-                        <button>Reservar</button>
-                    </a>
+<a href="/ProyectoFinal/public/reservas?id_servicio=<?= $service['id_servicio'] ?>">    <button>Reservar</button>
+</a>
+
                 </td>
             </tr>
         <?php endforeach; ?>

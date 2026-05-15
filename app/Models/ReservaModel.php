@@ -12,6 +12,19 @@ class ReservaModel {
     }
 
     public function crear($data) {
+        // Validar que la hora no esté ocupada
+        $sql = "SELECT COUNT(*) AS total FROM reserva 
+                WHERE fecha = ? AND hora = ? AND estado = 'activa'";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("ss", $data['fecha'], $data['hora']);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+
+        if ($result['total'] > 0) {
+            return false; // Hora ocupada
+        }
+
+        // Insertar reserva
         $stmt = $this->db->prepare(
             "INSERT INTO reserva (id_usuario, id_servicio, id_negocio, fecha, hora)
              VALUES (?, ?, ?, ?, ?)"
@@ -47,4 +60,35 @@ class ReservaModel {
         $stmt->bind_param("i", $id_reserva);
         return $stmt->execute();
     }
+
+    public function todasLasReservas($negocioId) {
+        global $conexion;
+
+        $sql = "SELECT r.*, s.nombre AS servicio, u.nombre AS usuario
+                FROM reserva r
+                JOIN servicio s ON r.id_servicio = s.id_servicio
+                JOIN usuario u ON r.id_usuario = u.id_usuario
+                WHERE r.id_negocio = ?
+                ORDER BY r.fecha, r.hora";
+
+        $stmt = $conexion->prepare($sql);
+        $stmt->bind_param("i", $negocioId);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+public function horasOcupadas($fecha) {
+    $sql = "SELECT hora FROM reserva WHERE fecha = ? AND estado = 'activa'";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bind_param("s", $fecha);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $horas = [];
+    while ($row = $result->fetch_assoc()) {
+        $horas[] = $row['hora'];
+    }
+
+    return $horas;
+}
+
 }

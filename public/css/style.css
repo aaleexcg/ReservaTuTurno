@@ -1,3 +1,122 @@
 @import url("header.css");
 @import url("home.css");
 @import url("reservas.css");
+
+.reservas-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.col-izquierda {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.col-derecha {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.horas-calendario {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.hora-item {
+    background: #222;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #444;
+}
+
+.hora-item:hover {
+    background: #333;
+}
+
+.hora-item.ocupada {
+    background: #552222;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.hora-item input {
+    display: none;
+}
+
+.hora-item input:checked + span,
+.hora-item input:checked {
+    background: #2a6;
+    color: white;
+}
+/* GRID PRINCIPAL */
+.reservas-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+/* HORAS EN GRID */
+.horas-calendario {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .reservas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .horas-calendario {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .horas-calendario {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    .horas-calendario {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+input[type="date"],
+input[type="time"],
+select {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 8px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+.desplegable-reservas summary {
+    cursor: pointer;
+    font-size: 18px;
+    color: #c9a227;
+    margin-bottom: 10px;
+}
+
+.desplegable-reservas summary:hover {
+    color: #e0b84a;
+}
+
+.desplegable-reservas[open] summary {
+    color: #fff;
+}
