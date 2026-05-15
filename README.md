@@ -1,28 +1,96 @@
-DESCRIPCION
+Proyecto Final – Sistema de Reservas en PHP (MVC)
+Aplicación web desarrollada en PHP con arquitectura MVC personalizada.
+Permite gestionar usuarios, negocios, servicios y reservas con selección de fecha y hora, validación de disponibilidad y panel administrativo.
 
-Proyecto Final – Sistema de Login y Registro en PHP
-Aplicación web desarrollada en PHP con arquitectura MVC básica. Incluye sistema de rutas mediante index.php, manejo de sesiones, conexión a base de datos MySQL y vistas para login y registro de usuarios.
+Funcionalidades principales
+Autenticación
+Registro de usuarios con password_hash()
 
-CARACTERISTICAS
+Login seguro con sesiones ($_SESSION)
 
-Funcionalidades actuales
+Middleware para proteger rutas
 
-Página principal con enlaces a Login y Registro.
+Redirección automática según estado de sesión
 
-Vista de Login con validación de usuario y contraseña.
+Gestión de negocios
+Selección de negocio antes de acceder al sistema
 
-Vista de Registro con inserción de nuevos usuarios en la base de datos.
+Sesión persistente del negocio seleccionado
 
-Contraseñas almacenadas de forma segura usando password_hash().
+Gestión de servicios
+CRUD completo (crear, editar, eliminar)
 
-Inicio de sesión mediante $_SESSION.
+Solo accesible para administradores
 
-Redirección automática tras login correcto.
+Sistema de reservas
+Selección de servicio, fecha y hora
 
-Sistema de rutas simple basado en index.php.
+Horas generadas automáticamente según horario
 
-.htaccess configurado para permitir URLs limpias (/login, /register, etc.).
+Solo se muestran horas disponibles
 
-DESPLIEGUE ACTUAL
+Validación en servidor para evitar reservas duplicadas
 
-Actualmente el proyecto se despliega en local mediante XAMPP 
+Cancelación de reservas activas
+
+Separación entre reservas activas y pasadas/canceladas
+
+Calendario administrativo
+Vista de calendario con todas las reservas del negocio
+
+Exportación en formato JSON para FullCalendar
+
+Sistema de rutas
+Router manual basado en index.php
+
+Manejo de rutas limpias
+
+Controladores separados por funcionalidad
+
+Arquitectura
+Código
+/app
+  /Controllers
+  /Models
+  /Views
+/config
+/public
+MVC real (Model–View–Controller)
+
+Router centralizado
+
+Vistas con layout general
+
+Modelos conectados a MySQL mediante mysqli
+
+Base de datos
+Tablas principales:
+
+usuario
+
+negocio
+
+servicio
+
+reserva
+
+Incluye campos como:
+
+estado (activa / cancelada)
+
+fecha
+
+hora
+
+id_negocio
+
+id_servicio
+
+Despliegue
+Actualmente el proyecto se ejecuta en local mediante XAMPP:
+
+PHP 8+
+
+MySQL
+
+Apache
