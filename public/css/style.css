@@ -120,3 +120,128 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .desplegable-reservas[open] summary {
     color: #fff;
 }
+.home-container {
+    padding: 30px;
+    text-align: center;
+}
+
+.subtitulo {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.home-card {
+    display: block;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.2s;
+    border: 1px solid #ddd;
+}
+
+.home-card:hover {
+    background: #eaeaea;
+    transform: translateY(-3px);
+}
+
+.home-fotos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.home-fotos img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.home-mapa img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.home-mapa {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.home-mapa img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.home-mapa img:hover {
+    transform: scale(1.02);
+}
+
+/*negocio*/
+.titulo-negocios {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.negocios-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.negocio-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+.negocio-img {
+    width: 180px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.negocio-info h2 {
+    margin: 0;
+    color: #111;
+}
+
+.negocio-descripcion {
+    margin: 8px 0 15px 0;
+    color: #555;
+}
+
+.btn-seleccionar {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-seleccionar:hover {
+    background: #555;
+}

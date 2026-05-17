@@ -38,14 +38,24 @@ class UsuarioController {
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
         if (UsuarioModel::crearUsuario($nombre, $email, $passwordHash)) {
-            $_SESSION["usuario"] = $nombre;
-            header("Location: /ProyectoFinal/public/home");
+
+            // Buscar el usuario recién creado
+            $usuario = UsuarioModel::buscarPorEmail($email);
+
+            session_start();
+            $_SESSION["usuario"] = $usuario["nombre"];
+            $_SESSION["id_usuario"] = $usuario["id_usuario"];
+            $_SESSION["rol"] = $usuario["rol"];
+
+            header("Location: /ProyectoFinal/public/negocios");
             exit;
+
         } else {
             $error = "Error al registrar usuario";
             require __DIR__ . "/../Views/register.php";
         }
     }
+
 
     public function home() {
         if (!isset($_SESSION["usuario"])) {

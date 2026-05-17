@@ -1,4 +1,3 @@
-
 <?php
 $titulo = "Calendario de reservas";
 ob_start();

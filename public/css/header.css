@@ -37,7 +37,7 @@ nav {
 }
 
 .nav a:hover {
-    color: #ff600a; /* Azul para hover */
+    color: #C9A86A; /* Dorado suave */
 }
 
 /* USUARIO */
@@ -54,26 +54,38 @@ nav {
 }
 
 @media (max-width: 800px) {
+
     .header {
-        height: auto;
-        flex-direction: column; /* Apila logo y menú uno sobre otro */
-        padding-bottom: 50px;   /* Espacio para el menú que flota */
-    }
-    nav {
-        top: 70px; /* Lo baja para que no tape al logo */
-    }
-    .usuario{
-        position: relative;
-        align-self: flex-end;
-        top: 0px;
-        margin-right: 20px;
-    }
-    
-    .dropdown-menu {
-        right: 10px;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 10px;
     }
 
+    nav {
+        position: static; /*  IMPORTANTE: deja de flotar */
+        transform: none;  /*  elimina el centrado absoluto */
+        margin-top: 10px;
+    }
+
+    .nav a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+
+    .usuario {
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    .dropdown-menu {
+        right: 0;
+        left: 0;
+        margin: auto;
+        text-align: center;
+    }
 }
+
 
 /* CONTENEDOR DEL USUARIO */
 .usuario {
@@ -122,5 +134,4 @@ nav {
 
 .dropdown-menu a:hover {
     background-color: #333;
-    color: #ff600a;
 }

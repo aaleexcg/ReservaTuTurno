@@ -1,51 +1,87 @@
-body { 
-    font-family: Arial, sans-serif; 
+body {
+    margin: 0;
+    padding: 0;
     background-color: #1A1A1A;
-} 
-.loginContainer { 
+    font-family: Arial, sans-serif;
     display: flex;
-    flex-direction:column ;
-    max-width: 400px; 
-    margin: 50px auto; 
-    padding: 20px; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
+    background: #ffffff;
+    padding: 40px;
+    width: 350px;
     border-radius: 20px;
     border: 2px solid #C9A86A;
     text-align: center;
-    background-color: white;
     color: #C9A86A;
-    justify-content: center;
-    align-items: center;
-}
-form {
-    display: grid;
-    grid-template-columns: auto 1fr; /* La 1ª columna se ajusta al texto, la 2ª ocupa el resto */
-    gap: 15px;      /* Espacio entre filas y columnas */
-    align-items: center; 
-    width: 100%;    
-    max-width: 300px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-/* Para que el botón y el enlace ocupen las dos columnas y se centren */
-button, a {
-    grid-column: span 2; 
-    text-align: center;
+.login-logo {
+    width: 80px;
+    margin-bottom: 15px;
 }
-button{
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #C9A86A;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #C9A86A;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
     background-color: #C9A86A;
+    border: none;
     border-radius: 10px;
+    color: #1A1A1A;
+    font-size: 16px;
     cursor: pointer;
-}
-button:hover{
-    background-color: rgb(253, 255, 154);
-}
-a{
-    margin-top: 10px;    
-    color:#C9A86A ;
-}
-a:hover{
-    color: purple;
+    margin-top: 10px;
+    transition: 0.2s;
 }
 
-img{
-    max-width: 5vw;
+.btn-login:hover {
+    background-color: #e8c98a;
+}
+
+.register-link {
+    display: block;
+    margin-top: 15px;
+    color: #C9A86A;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    color: purple;
 }
