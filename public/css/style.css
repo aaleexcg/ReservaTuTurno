@@ -245,3 +245,158 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .btn-seleccionar:hover {
     background: #555;
 }
+
+
+/*servicios*/
+
+.titulo-servicios {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.btn-crear-servicio {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: #C9A86A;
+    color: #1A1A1A;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.servicio-card {
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.2s;
+    color: #111;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+}
+
+.servicio-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.servicio-info {
+    padding: 15px;
+}
+
+.servicio-info h2 {
+    margin: 0 0 10px 0;
+}
+
+.servicio-detalle {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.servicio-botones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-reservar,
+.btn-editar,
+.btn-eliminar {
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-reservar {
+    background: #1A1A1A;
+}
+
+.btn-editar {
+    background: #C9A86A;
+    color: #1A1A1A;
+}
+
+.btn-eliminar {
+    background: #b30000;
+}
+/* crear servicio*/
+
+.crear-servicio-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #C9A86A;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+
+.crear-servicio-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #C9A86A;
+}
+
+.crear-servicio-container label {
+    font-weight: bold;
+    color: #1A1A1A;
+}
+
+.crear-servicio-container input,
+.crear-servicio-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #C9A86A;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.crear-servicio-container textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.crear-servicio-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #C9A86A;
+    border: none;
+    border-radius: 10px;
+    color: #1A1A1A;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.crear-servicio-container button:hover {
+    background-color: #e8c98a;
+}
+
+/*footer*/
+.footer {
+    background-color: #1A1A1A;
+    color: #C9A86A;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    border-top: 2px solid #C9A86A;
+    font-family: Arial, sans-serif;
+}
+

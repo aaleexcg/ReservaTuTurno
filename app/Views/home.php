@@ -43,17 +43,18 @@
 
         <br><br>
 
-        <!-- MAPA -->
-<h2>Encuéntranos aquí</h2>
+                <!-- MAPA -->
+        <h2>Encuéntranos aquí</h2>
 
-<div class="home-mapa">
-    <a href="https://www.google.com/maps?q=<?= urlencode($_SESSION['negocio_direccion'] ?? 'Granada') ?>" target="_blank">
-        <img src="/ProyectoFinal/public/img/mapa.webp" alt="Mapa ubicación">
-    </a>
-</div>
+        <div class="home-mapa">
+            <a href="https://www.google.com/maps?q=<?= urlencode($_SESSION['negocio_direccion'] ?? 'Granada') ?>" target="_blank">
+                <img src="/ProyectoFinal/public/img/mapa.webp" alt="Mapa ubicación">
+            </a>
+        </div>
 
 
     </div>
+    <?php require __DIR__ . "/partials/footer.php"; ?>
 
 </body>
 </html>
